@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+
+    <tbody>
+      <%- @stories.each_with_index do |story, index| %>
+      <tr>
+        <td>
+          <%= index + 1 %>
+          .
+          <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        </td>
+        <td>
+          <p>
+            <%= link_to story.title, story.link %>
+            (<%= story.link %>)
+          </p>
+          <p>
+            000 points by
+            <%= link_to story.email, "mailto:#{story.email}" %>
+            <%= distance_of_time_in_words_to_now(story.created_at) %>
+            ago |
+            hide |
+            000 comments
+          </p>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
